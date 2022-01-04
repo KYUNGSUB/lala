@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>lala</display-name>
+  
+  <context-param>
+  	<param-name>aricle_per_page</param-name>
+  	<param-value>10</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>page_per_board</param-name>
+  	<param-value>10</param-value>
+  </context-param>
+  <context-param>
+  	<description>윈도우 OS로 구성된 서버에서 업로드 파일을 저장하는 경로</description>
+  	<param-name>window_upload_path</param-name>
+  	<param-value>D:\pds</param-value>
+  </context-param>
+  <context-param>
+  	<description>Linux OS로 구성된 서버에서 업로드 파일을 저장하는 경로</description>
+  	<param-name>linux_upload_path</param-name>
+  	<param-value>/home/pi/music_content</param-value>
+  </context-param>
+  
+  <servlet>
+    <servlet-name>ControllerUsingURI</servlet-name>
+    <servlet-class>com.talanton.web.lala.common.controller.ControllerUsingURI</servlet-class>
+    <init-param>
+      <param-name>configFile</param-name>
+      <param-value>
+            /property/commandHandlerURI.properties
+        </param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerUsingURI</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>com.talanton.web.lala.utils.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

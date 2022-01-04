@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/lala" auth="Container"
+		driverClassName="com.mysql.cj.jdbc.Driver" type="javax.sql.DataSource"
+		username="study" password="study"
+		url="jdbc:mysql://localhost:3306/lala?allowPublicKeyRetrieval=true&amp;useSSL=false"
+		maxTotal="500"
+		maxIdle="100"
+		maxWaitMillis="-1"
+		/>
+</Context>
